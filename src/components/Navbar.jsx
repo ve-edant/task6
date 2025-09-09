@@ -33,7 +33,8 @@ const Navbar = () => {
   useEffect(() => {
     if (activeDropdown !== null || isMobileMenuOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [activeDropdown, isMobileMenuOpen, handleClickOutside]);
 
@@ -101,55 +102,91 @@ const Navbar = () => {
     setActiveMobileSubmenu(null);
   }, []);
 
+  // Check if the mega menu has nested structure (Solutions) or flat structure (Industries)
+  const isNestedMegaMenu = (megaMenu) => {
+    return megaMenu[0]?.subHeadings !== undefined;
+  };
+
   // Mega menu for desktop
   const renderMegaMenu = useCallback(
     (menuData) => {
-      return (
-        <div className="absolute top-full left-0 w-xl bg-white shadow-xl border-t border-gray-100 z-50 animate-in fade-in-0 slide-in-from-top-2 duration-200">
-          <div className="max-w-7xl mx-auto flex">
-            {/* Left - Headings */}
-            <div className="w-1/4 border-r border-gray-200 bg-gray-50">
-              <ul className="flex flex-col">
-                {menuData.map((section, idx) => (
-                  <li
-                    key={idx}
-                    className={`px-4 py-3 text-sm font-medium cursor-pointer transition-colors ${
-                      activeHeading?.heading === section.heading
-                        ? "bg-white text-blue-600 border-l-4 border-blue-600"
-                        : "text-gray-700 hover:bg-white hover:text-blue-500"
-                    }`}
-                    onMouseEnter={() => setActiveHeading(section)}
-                  >
-                    {section.heading}
-                  </li>
-                ))}
-              </ul>
-            </div>
+      const isNested = isNestedMegaMenu(menuData);
 
-            {/* Right - Subheadings */}
-            <div className="w-3/4 px-6 py-6">
-              {activeHeading?.subHeadings?.map((sub, subIdx) => (
-                <div key={subIdx} className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-2">
-                    {sub.title}
-                  </h4>
-                  <div className="grid grid-cols-3 lg:grid-cols-4 gap-3">
-                    {sub.links.map((link, linkIdx) => (
-                      <a
-                        key={linkIdx}
-                        href={link.path}
-                        className="text-gray-600 hover:text-blue-600 text-sm block px-2 py-1 rounded transition-colors duration-200"
-                      >
-                        {link.label}
-                      </a>
-                    ))}
+      if (isNested) {
+        // Solutions structure - keep original left-right layout
+        return (
+          <div className="absolute top-full -left-100 w-4xl h-[500px] overflow-hidden bg-[#f3fafb] shadow-xl border-t border-gray-100 z-50 animate-in fade-in-0 slide-in-from-top-2 duration-200">
+            <div className="flex">
+              {/* Left - Headings */}
+              <div className="w-1/5 border-r border-gray-200 bg-gray-50">
+                <ul className="flex flex-col">
+                  {menuData.map((section, idx) => (
+                    <li
+                      key={idx}
+                      className={`px-3 py-6 text-sm font-bold cursor-pointer transition-colors ${
+                        activeHeading?.heading === section.heading
+                          ? "bg-[#01143e] text-white"
+                          : "text-[#01143e] bg-[#f3fafb]"
+                      }`}
+                      onMouseEnter={() => setActiveHeading(section)}
+                    >
+                      {section.heading}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Right - Subheadings */}
+              <div className="w-4/5 p-4">
+                {activeHeading?.subHeadings?.map((sub, subIdx) => (
+                  <div key={subIdx} className="mb-6 last:mb-0">
+                    <h4 className="text-md bg-[#d6e3f3] px-2 py-4 font-bold text-[#01143e] text-center uppercase tracking-wide mb-2">
+                      {sub.title}
+                    </h4>
+                    <div className="grid grid-cols-3 lg:grid-cols-4 gap-1">
+                      {sub.links.map((link, linkIdx) => (
+                        <a
+                          key={linkIdx}
+                          href={link.path}
+                          className="text-gray-600 hover:text-blue-600 text-sm block px-2 py-1 rounded transition-colors duration-200"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      } else {
+        // Industries structure - only left section style
+        return (
+          <div className="absolute top-full -left-50 w-xl h-[500px] overflow-hidden bg-[#f3fafb] shadow-xl border-t border-gray-100 z-50 animate-in fade-in-0 slide-in-from-top-2 duration-200">
+              <ul className="flex flex-col p-4">
+                {menuData.map((section, idx) => (
+                  <div key={idx} className="mb-6 last:mb-0">
+                    <h4 className="text-sm bg-[#d6e3f3] px-2 py-4 font-bold text-[#01143e] text-center uppercase tracking-wide mb-2">
+                      {section.heading}
+                    </h4>
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-1">
+                      {section.links.map((link, linkIdx) => (
+                        <a
+                          key={linkIdx}
+                          href={link.path}
+                          className="text-gray-600 hover:text-blue-600 text-sm block px-2 py-1 rounded transition-colors duration-200"
+                        >
+                          {link.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </ul>
+          </div>
+        );
+      }
     },
     [activeHeading]
   );
@@ -157,7 +194,7 @@ const Navbar = () => {
   // Submenu (simple dropdown)
   const renderSubmenu = useCallback((submenu) => {
     return (
-      <div className="absolute top-full left-0 bg-white shadow-xl border border-gray-100 rounded-lg py-2 min-w-56 z-50 animate-in fade-in-0 slide-in-from-top-2 duration-200">
+      <div className="absolute top-full left-0 bg-white shadow-xl border border-gray-100 rounded-lg py-2 px-16 min-w-56 z-50 animate-in fade-in-0 slide-in-from-top-2 duration-200">
         {submenu.map((item, idx) => (
           <a
             key={idx}
@@ -172,7 +209,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="relative">
+    <header className="relative w-full">
       <nav
         ref={navbarRef}
         className={`bg-white sticky top-0 z-40 transition-all duration-200 ${
@@ -180,8 +217,8 @@ const Navbar = () => {
         }`}
         aria-label="Main navigation"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+        <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <a
               href="/"
@@ -192,8 +229,12 @@ const Navbar = () => {
                 A
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold text-gray-800 leading-none">ALP</span>
-                <span className="text-xs text-gray-500 hidden sm:inline leading-none">Consulting</span>
+                <span className="text-xl font-bold text-gray-800 leading-none">
+                  ALP
+                </span>
+                <span className="text-xs text-gray-500 hidden sm:inline leading-none">
+                  Consulting
+                </span>
               </div>
             </a>
 
@@ -215,7 +256,7 @@ const Navbar = () => {
                     </a>
                   ) : (
                     <button
-                      className="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium transition-all duration-200 rounded-lg hover:bg-blue-50 flex items-center space-x-1"
+                      className="px-4 py-2 bg-white text-black hover:text-blue-600 font-medium transition-all duration-200 rounded-lg hover:bg-blue-50 flex items-center space-x-1"
                       aria-expanded={activeDropdown === index}
                       aria-haspopup="true"
                     >
@@ -237,16 +278,15 @@ const Navbar = () => {
                   )}
                 </div>
               ))}
-            </div>
-
-            {/* CTA Desktop */}
-            <div className="hidden lg:block">
-              <a
-                href="/contact"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md"
-              >
-                Get Quote
-              </a>
+              {/* CTA Desktop */}
+              <div className="hidden lg:block">
+                <a
+                  href="/contact"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md"
+                >
+                  Get Quote
+                </a>
+              </div>
             </div>
 
             {/* Mobile menu toggle */}
@@ -272,7 +312,10 @@ const Navbar = () => {
             <div className="fixed top-16 left-0 right-0 bottom-0 bg-white z-50 lg:hidden overflow-y-auto">
               <div className="px-4 py-6 space-y-2">
                 {navbarData.map((item, index) => (
-                  <div key={index} className="border-b border-gray-100 pb-4 last:pb-0">
+                  <div
+                    key={index}
+                    className="border-b border-gray-100 pb-4 last:pb-0"
+                  >
                     {item.path ? (
                       <a
                         href={item.path}
@@ -307,30 +350,57 @@ const Navbar = () => {
                                 {subItem.label}
                               </a>
                             ))}
-                            {item.megaMenu?.map((section, secIdx) => (
-                              <div key={secIdx} className="pt-4 first:pt-2">
-                                <div className="px-6 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">
-                                  {section.heading}
-                                </div>
-                                {section.subHeadings?.map((sub, sIdx) => (
-                                  <div key={sIdx} className="space-y-1">
-                                    <div className="px-6 py-1 text-gray-500 text-xs font-semibold">
-                                      {sub.title}
+                            {item.megaMenu?.map((section, secIdx) => {
+                              const isNested = isNestedMegaMenu(item.megaMenu);
+                              if (isNested) {
+                                // Solutions mobile structure
+                                return (
+                                  <div key={secIdx} className="pt-4 first:pt-2">
+                                    <div className="px-6 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                                      {section.heading}
                                     </div>
-                                    {sub.links.map((link, lIdx) => (
-                                      <a
-                                        key={lIdx}
-                                        href={link.path}
-                                        className="block px-8 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg"
-                                        onClick={closeMobileMenu}
-                                      >
-                                        {link.label}
-                                      </a>
+                                    {section.subHeadings?.map((sub, sIdx) => (
+                                      <div key={sIdx} className="space-y-1">
+                                        <div className="px-6 py-1 text-gray-500 text-xs font-semibold">
+                                          {sub.title}
+                                        </div>
+                                        {sub.links.map((link, lIdx) => (
+                                          <a
+                                            key={lIdx}
+                                            href={link.path}
+                                            className="block px-8 py-1 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg"
+                                            onClick={closeMobileMenu}
+                                          >
+                                            {link.label}
+                                          </a>
+                                        ))}
+                                      </div>
                                     ))}
                                   </div>
-                                ))}
-                              </div>
-                            ))}
+                                );
+                              } else {
+                                // Industries mobile structure
+                                return (
+                                  <div key={secIdx} className="pt-4 first:pt-2">
+                                    <div className="px-6 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                                      {section.heading}
+                                    </div>
+                                    <div className="space-y-1">
+                                      {section.links.map((link, linkIdx) => (
+                                        <a
+                                          key={linkIdx}
+                                          href={link.path}
+                                          className="block px-6 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg"
+                                          onClick={closeMobileMenu}
+                                        >
+                                          {link.label}
+                                        </a>
+                                      ))}
+                                    </div>
+                                  </div>
+                                );
+                              }
+                            })}
                           </div>
                         )}
                       </>
