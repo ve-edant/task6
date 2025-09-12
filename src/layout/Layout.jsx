@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Layout = ({ children }) => {
   return (
@@ -8,9 +9,7 @@ const Layout = ({ children }) => {
 
       <main className="flex-1 pt-20">{children}</main>
 
-      <footer className="bg-gray-100 text-center py-4 text-sm text-gray-600">
-        © {new Date().getFullYear()} Alp Consulting. All rights reserved.
-      </footer>
+      <Footer />
     </div>
   );
 };

@@ -13,3 +13,40 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+.button--mimas {
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  color: #fff;
+  background: #f97316; /* blue base */
+  position: relative;
+  z-index: 0;
+  padding: 16px;
+}
+
+.button--mimas span {
+  position: relative;
+  z-index: 2;
+}
+
+.button--mimas::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 120%;
+  height: 100%;
+  background: #2563eb; /* orange → blue */
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.3, 1, 0.8, 1);
+  z-index: 1;
+}
+
+.button--mimas:hover::before {
+  transform:  translateX(0%);
+}

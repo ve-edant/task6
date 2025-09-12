@@ -6,6 +6,9 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import ExecutiveSearch from "./pages/Solutions/RecruitmentStaffing/RecruitmentServices/ExecutiveSearch";
+import ContingentSearch from "./pages/Solutions/RecruitmentStaffing/RecruitmentServices/ContingentSearch";
+import Footer from "./components/Footer";
+import Careers from "./pages/Careers";
 
 function App() {
   return (
@@ -16,8 +19,11 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/executive-search-firm" element={<ExecutiveSearch />} />
+          <Route path="/contingent-search" element={<ContingentSearch/>}/>
+          <Route path="/careers" element={<Careers />}/>
         </Routes>
       </Router>
+      <Footer />
     </div>
   );
 }
