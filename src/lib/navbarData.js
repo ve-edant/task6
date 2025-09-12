@@ -470,10 +470,10 @@ export const navbarData = [
   {
     title: "About Alp",
     submenu: [
-      { label: "Overview", path: "/alp-overview" },
-      { label: "Philosophy", path: "/alp-philosophy" },
-      { label: "Investor’s Profile", path: "/alp-investors-profile" },
-      { label: "Alp Management", path: "/alp-management" },
+      { label: "Overview", path: "/overview" },
+      { label: "Philosophy", path: "/philosophy" },
+      { label: "Investor’s Profile", path: "/investors-profile" },
+      { label: "Alp Management", path: "/management" },
     ],
   },
   {
