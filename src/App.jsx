@@ -9,6 +9,7 @@ import ExecutiveSearch from "./pages/Solutions/RecruitmentStaffing/RecruitmentSe
 import ContingentSearch from "./pages/Solutions/RecruitmentStaffing/RecruitmentServices/ContingentSearch";
 import Footer from "./components/Footer";
 import Careers from "./pages/Careers";
+import Overview from "./pages/Overview";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
           <Route path="/executive-search-firm" element={<ExecutiveSearch />} />
           <Route path="/contingent-search" element={<ContingentSearch/>}/>
           <Route path="/careers" element={<Careers />}/>
+          <Route path="/overview" element={<Overview />}/>
+
         </Routes>
       </Router>
       <Footer />
