@@ -48,7 +48,7 @@ const ExecutiveSearch = () => {
     <div className=" bg-[#fcfcfc]">
       <PageTitle
         title="Executive Search Firm"
-        imageUrl="https://placehold.co/300x200/png"
+        imageUrl="https://alp.consulting/wp-content/uploads/2025/02/Executive-Search-Firm.webp"
       />
       <section className=" lg:mx-[100px] flex flex-col md:flex-row items-center md:items-stretch px-6 md:px-12 py-12 md:py-20 gap-10">
         {/* Left Content */}
@@ -59,7 +59,7 @@ const ExecutiveSearch = () => {
             Company in India
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            Alp Consulting is one of the topmost executive search firms in
+            DT Consulting is one of the topmost executive search firms in
             India, with experience spanning over 2 decades. With a deep
             knowledge of the industry and a panel of expert recruiters in-house,
             we have helped many Fortune 500 companies find their top leaders and
@@ -106,7 +106,7 @@ const ExecutiveSearch = () => {
             Introduction
           </h2>
           <p className="text-gray-700 leading-relaxed">
-            At Alp, we have a deep understanding of the client’s business
+            At DT, we have a deep understanding of the client’s business
             requirements, industry dynamics and functional know-how. Our access
             to a wider network of senior leaders and analytical capabilities
             enables us to provide you with the best of the best senior-
@@ -212,7 +212,7 @@ const ExecutiveSearch = () => {
             </h2>
           </div>
           <p className="mt-4 text-gray-600">
-            Alp Consulting is known as one of the best executive search firms in
+            DT Consulting is known as one of the best executive search firms in
             India and we have rightfully earned that place by providing top
             notch executives search services to clients regardless of the nature
             of their industry, their unique needs and size of the company.

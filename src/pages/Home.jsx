@@ -105,7 +105,7 @@ const Home = () => {
             Since 1996
           </h2>
           <p className="text-gray-700 leading-relaxed  text-center md:text-left">
-            Alp Consulting is one of the best recruitment consultancies in
+            DT Consulting is one of the best recruitment consultancies in
             India, handling recruitment and staffing for several Fortune 500
             companies. Apart from supporting new initiatives with their hiring
             mandates, we have also helped some of the leading global players

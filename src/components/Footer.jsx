@@ -1,4 +1,4 @@
-import React from 'react';
+import logo from "../assets/logo.jpeg";
 
 const Footer = () => {
   return (
@@ -10,14 +10,14 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
             <div className="mb-6">
               <img 
-                src="https://alp.consulting/wp-content/uploads/2023/07/Alp-logo-white-300x103.png" 
-                alt="Alp Consulting Logo" 
-                className="w-48 h-auto mb-6"
+                src={logo} 
+                alt="DT Consulting Logo" 
+                className="w-50 h-auto mb-6"
                 loading="lazy"
               />
             </div>
             <p className="text-blue-100 leading-relaxed mb-6 text-sm">
-              Alp Consulting, one of the leading recruitment and staffing companies of India, is a ISO 9001:2000 certified company and a subsidiary of BREXA Holdings Inc., a multi-billion-dollar Japanese conglomerate with presence in 17 countries.
+              DT Consulting, one of the leading recruitment and staffing companies of India, is a ISO 9001:2000 certified company and a subsidiary of BREXA Holdings Inc., a multi-billion-dollar Japanese conglomerate with presence in 17 countries.
             </p>
             <div className="flex justify-start">
               <img 
@@ -29,21 +29,21 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* About Alp & Insights Column */}
+          {/* About & Insights Column */}
           <div className="col-span-1">
             <div className="mb-8">
-              <h4 className="text-xl font-semibold mb-4 text-white">About Alp</h4>
+              <h4 className="text-xl font-semibold mb-4 text-white">About DT</h4>
               <ul className="space-y-2">
-                <li><a href="/alp-overview/" className="text-blue-100 hover:text-white transition-colors duration-200 text-sm">Overview</a></li>
-                <li><a href="/alp-philosophy/" className="text-blue-100 hover:text-white transition-colors duration-200 text-sm">Philosophy</a></li>
-                <li><a href="/alp-management/" className="text-blue-100 hover:text-white transition-colors duration-200 text-sm">Top Management</a></li>
-                <li><a href="/alp-investors-profile/" className="text-blue-100 hover:text-white transition-colors duration-200 text-sm">Investor's Profile</a></li>
+                <li><a href="/overview/" className="text-blue-100 hover:text-white transition-colors duration-200 text-sm">Overview</a></li>
+                <li><a href="/philosophy/" className="text-blue-100 hover:text-white transition-colors duration-200 text-sm">Philosophy</a></li>
+                <li><a href="/management/" className="text-blue-100 hover:text-white transition-colors duration-200 text-sm">Top Management</a></li>
+                <li><a href="/investors-profile/" className="text-blue-100 hover:text-white transition-colors duration-200 text-sm">Investor's Profile</a></li>
                 <li><a href="/careers/" className="text-blue-100 hover:text-white transition-colors duration-200 text-sm">Careers@Alp</a></li>
               </ul>
             </div>
             
             <div>
-              <h4 className="text-xl font-semibold mb-4 text-white">Alp Insights</h4>
+              <h4 className="text-xl font-semibold mb-4 text-white">DT Insights</h4>
               <ul className="space-y-2">
                 <li><a href="/blogs/" className="text-blue-100 hover:text-white transition-colors duration-200 text-sm">Blogs</a></li>
                 <li><a href="/category/guides-reports/" className="text-blue-100 hover:text-white transition-colors duration-200 text-sm">Guides & Reports</a></li>
@@ -108,7 +108,7 @@ const Footer = () => {
         <div className="border-t border-blue-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <p className="text-blue-100 text-sm">© 2024 Alp Consulting. All rights reserved.</p>
+              <p className="text-blue-100 text-sm">© 2025 DT Consulting. All rights reserved.</p>
             </div>
             <div className="flex flex-wrap gap-6">
               <a href="#" className="text-blue-100 hover:text-white transition-colors duration-200 text-sm">Privacy Policy</a>

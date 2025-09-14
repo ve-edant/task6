@@ -468,12 +468,12 @@ export const industriesMenu = [
 // navbarData.js
 export const navbarData = [
   {
-    title: "About Alp",
+    title: "About DT",
     submenu: [
       { label: "Overview", path: "/overview" },
       { label: "Philosophy", path: "/philosophy" },
       { label: "Investor’s Profile", path: "/investors-profile" },
-      { label: "Alp Management", path: "/management" },
+      { label: "DT Management", path: "/management" },
     ],
   },
   {

@@ -421,7 +421,7 @@ export default function Overview() {
         </div>
       </section>
 
-      {/* The Alp Advantage Section */}
+      {/* The DT Advantage Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">

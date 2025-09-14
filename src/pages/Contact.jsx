@@ -86,7 +86,7 @@ const Contact = () => {
       image:
         "https://alp.consulting/wp-content/uploads/2023/09/sri_lanka-icon.png",
       address:
-        "ALP CONSULTING LANKA (PRIVATE) LIMITED, (PV00266559) No.568/2, Aluthmawath Road, Colombo 15, Postcode: 01500",
+        "DT CONSULTING LANKA (PRIVATE) LIMITED, (PV00266559) No.568/2, Aluthmawath Road, Colombo 15, Postcode: 01500",
     },
   ];
 
@@ -168,8 +168,8 @@ const Contact = () => {
             
             <p className="text-gray-600 mb-6 leading-relaxed">
               If you are a former employee and you have any query related to your Provident Fund, ESI, PT, Tax or other employment related queries, please send an email to{' '}
-              <a href="mailto:hr@alpconsulting.in" className="text-blue-500 hover:text-blue-700 underline font-medium">
-                hr@alpconsulting.in
+              <a href="mailto:hr@dtconsulting.in" className="text-blue-500 hover:text-blue-700 underline font-medium">
+                hr@dtconsulting.in
               </a>
             </p>
           </div>

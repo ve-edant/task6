@@ -203,7 +203,7 @@ const BusinessContactForm = () => {
                     htmlFor="acceptance"
                     className="text-sm text-gray-600 leading-relaxed"
                   >
-                    I authorise Alp Consulting Limited & its representatives to
+                    I authorise DT Consulting Limited & its representatives to
                     contact me with updates and notifications via
                     Email/SMS/WhatsApp/Call. This will override DND/NDNC.
                   </label>
@@ -248,7 +248,7 @@ const BusinessContactForm = () => {
           <div className="lg:pr-[120px] py-10 order-1 bg-[#01143e] lg:order-2">
             <div className="lg:pl-8">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-                Want to explore partnership with Alp?
+                Want to explore partnership with DT?
               </h2>
 
               <div className="space-y-4 text-gray-300 leading-relaxed">
@@ -270,7 +270,7 @@ const BusinessContactForm = () => {
                   </strong>{" "}
                   If you are looking for a job please visit our careers page. If
                   you need any support from our HR team please send an email to
-                  hr@alpconsulting.in.
+                  hr@dtconsulting.in.
                 </p>
               </div>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { navbarData } from "../lib/navbarData";
+import logo from "../assets/logo.jpeg";
 
 const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -164,26 +165,26 @@ const Navbar = () => {
         // Industries structure - only left section style
         return (
           <div className="absolute top-full -left-50 w-xl h-[500px] overflow-hidden bg-[#f3fafb] shadow-xl border-t border-gray-100 z-50 animate-in fade-in-0 slide-in-from-top-2 duration-200">
-              <ul className="flex flex-col p-4">
-                {menuData.map((section, idx) => (
-                  <div key={idx} className="mb-6 last:mb-0">
-                    <h4 className="text-sm bg-[#d6e3f3] px-2 py-4 font-bold text-[#01143e] text-center uppercase tracking-wide mb-2">
-                      {section.heading}
-                    </h4>
-                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-1">
-                      {section.links.map((link, linkIdx) => (
-                        <a
-                          key={linkIdx}
-                          href={link.path}
-                          className="text-gray-600 hover:text-blue-600 text-sm block px-2 py-1 rounded transition-colors duration-200"
-                        >
-                          {link.label}
-                        </a>
-                      ))}
-                    </div>
+            <ul className="flex flex-col p-4">
+              {menuData.map((section, idx) => (
+                <div key={idx} className="mb-6 last:mb-0">
+                  <h4 className="text-sm bg-[#d6e3f3] px-2 py-4 font-bold text-[#01143e] text-center uppercase tracking-wide mb-2">
+                    {section.heading}
+                  </h4>
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-1">
+                    {section.links.map((link, linkIdx) => (
+                      <a
+                        key={linkIdx}
+                        href={link.path}
+                        className="text-gray-600 hover:text-blue-600 text-sm block px-2 py-1 rounded transition-colors duration-200"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
                   </div>
-                ))}
-              </ul>
+                </div>
+              ))}
+            </ul>
           </div>
         );
       }
@@ -223,19 +224,14 @@ const Navbar = () => {
             <a
               href="/"
               className="flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-md p-1"
-              aria-label="ALP Consulting - Home"
+              aria-label="DT Consulting - Home"
             >
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-md text-white flex items-center justify-center font-bold shadow-sm">
-                A
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-bold text-gray-800 leading-none">
-                  ALP
-                </span>
-                <span className="text-xs text-gray-500 hidden sm:inline leading-none">
-                  Consulting
-                </span>
-              </div>
+              <img
+                src={logo}
+                alt="DT Consulting Logo"
+                className="h-15 w-auto object-contain"
+                loading="lazy"
+              />
             </a>
 
             {/* Desktop Menu */}

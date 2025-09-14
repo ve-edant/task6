@@ -22,7 +22,7 @@ export default function ServicesSection() {
       imgSrc: "https://alp.consulting/wp-content/uploads/2023/07/Compliance.png",
       title: "Labor Compliance and Payroll",
       description:
-        "Alp Consulting is a leading compliance management company and can manage your labor compliance needs in a very efficient manner. We will handle your payroll with great care and ensure 100% accuracy and compliance.",
+        "DT Consulting is a leading compliance management company and can manage your labor compliance needs in a very efficient manner. We will handle your payroll with great care and ensure 100% accuracy and compliance.",
       link: "/statutory-compliance-services/",
     },
     {

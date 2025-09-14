@@ -23,21 +23,21 @@ const Careers = () => {
           <h2 className="text-2xl md:text-5xl font-semibold text-gray-900 text-center md:text-left">
             Career Opportunities
             <br />
-            at Alp Consulting
+            at DT Consulting
           </h2>
           <p className="text-gray-700 leading-relaxed  text-center md:text-left">
             Do you want to leapfrog your career to the next level? Explore
-            opportunities available at Alp now and find a job that suits your
+            opportunities available at DT now and find a job that suits your
             skills and experiences. Check out all our job opening below.
           </p>
           <p className="text-red-500 italic leading-relaxed text-center md:text-left">
-            Recruitment Fraud Alert!<br/><br/>Please note that Alp Consulting follows a
+            Recruitment Fraud Alert!<br/><br/>Please note that DT Consulting follows a
             strictly merit-based recruitment practice and we don't charge any
             fees or any kind of security deposit from any job seeker under any
             circumstances. If you encounter any such instance of anyone asking
-            for any kind of money for any job opening from Alp, the job is most
+            for any kind of money for any job opening from DT, the job is most
             likely posted by a scammer. Beware of such scammers and fake job
-            postings done in the name of Alp Consulting!
+            postings done in the name of DT Consulting!
           </p>
           <div className="flex justify-center md:justify-start items-center w-full">
             <a
